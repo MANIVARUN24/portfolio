@@ -530,6 +530,14 @@ export default function App() {
                 </p>
                 <p className="ach-meta">Built with React · JavaScript</p>
               </div>
+              <div className="ach-item">
+                <p className="ach-platform">Competition</p>
+                <h3 className="ach-title">Geopolitics Quiz Runner-Up</h3>
+                <p className="ach-desc">
+                  Participated in a competitive quiz focusing on international affairs and geopolitics, securing runner-up position.
+                </p>
+                <p className="ach-meta">Award: Runner-Up</p>
+              </div>
             </div>
           </div>
         </section>
