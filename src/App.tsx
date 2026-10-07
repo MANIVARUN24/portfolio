@@ -526,9 +526,9 @@ export default function App() {
                 <h3 className="ach-title">Face Recognition System</h3>
                 <p className="ach-desc">
                   Contributed to a Smart Face Recognition System to support monitoring
-                  of mid-day meal distribution in government schools.
+                  of mid-day meal distribution in government schools. Selected for the internal hackathon round.
                 </p>
-                <p className="ach-meta">Built with React · JavaScript</p>
+                <p className="ach-meta">Selected for Internal Round · Built with React & JavaScript</p>
               </div>
               <div className="ach-item">
                 <p className="ach-platform">Competition</p>
