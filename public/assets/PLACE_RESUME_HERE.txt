@@ -1,0 +1,11 @@
+Place your resume PDF file here, named exactly:
+
+  resume.pdf
+
+The full path should be:
+  public/assets/resume.pdf
+
+Once placed here, the "Download Resume" button in the Navbar and Hero
+section will automatically link to it.
+
+The file is served at runtime as: /assets/resume.pdf

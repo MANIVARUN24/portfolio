@@ -1,0 +1,121 @@
+/* Achievements */
+
+.achievements {
+  background: var(--bg-secondary);
+}
+
+.ach__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.ach__card {
+  display: flex;
+  gap: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: border-color var(--transition), background var(--transition), transform var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+.ach__card:hover {
+  border-color: var(--border);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+}
+
+.ach__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ach__icon--codechef {
+  background: rgba(79, 142, 247, 0.12);
+  color: var(--accent);
+}
+
+.ach__icon--sih {
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--purple);
+}
+
+.ach__content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.ach__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ach__desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.ach__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ach__meta-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ach__meta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  transition: opacity var(--transition);
+}
+
+.ach__meta-link:hover {
+  opacity: 0.75;
+}
+
+.ach__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.ach__tag {
+  padding: 3px 10px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 100px;
+}
+
+@media (max-width: 600px) {
+  .ach__grid {
+    grid-template-columns: 1fr;
+  }
+  .ach__card {
+    padding: 18px;
+    gap: 14px;
+  }
+}
