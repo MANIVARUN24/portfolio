@@ -562,11 +562,24 @@ export default function App() {
                       <span className="cert-detail-val">Amazon Web Services</span>
                     </div>
                     <div className="cert-detail">
-                      <span className="cert-detail-label">Target / Expected</span>
-                      <span className="cert-detail-val">June 2026</span>
+                      <span className="cert-detail-label">Verification</span>
+                      <span className="cert-detail-val" style={{ color: '#10b981', fontWeight: 600 }}>Verified on Credly</span>
                     </div>
                   </div>
-                  <p className="cert-note">Credly badge link will be added once the credential URL is issued.</p>
+                  <div style={{ marginTop: '18px' }}>
+                    <a
+                      href="https://www.credly.com/badges/63b5bc44-2387-4a9a-b00a-aee231f17bd3/public_url"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="gh-link"
+                      aria-label="View verified AWS Certified Cloud Practitioner badge on Credly"
+                    >
+                      <span className="tooltip">credly.com</span>
+                      <IconExternal size={14} />
+                      View Verified Credential
+                      <IconArrow size={13} />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
