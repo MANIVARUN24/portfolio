@@ -221,23 +221,43 @@ const projects = [
   {
     num: '02',
     name: 'Manora Café',
-    sub: 'Café Management & Ordering System',
-    desc: 'A web-based café management system for centralised order, user, and staff management. Implements role-based access control and SQL database workflows with an API integration layer.',
-    stack: ['Python', 'Web Technologies', 'SQL', 'API Integration'],
+    sub: 'Full-Stack Café Management & Online Ordering System',
+    desc: 'A full-stack café management and real-time ordering platform engineered to streamline customer ordering, kitchen operations, and administrative workflows. Powered by Supabase as the backend for authentication, PostgreSQL relational data persistence, Row-Level Security (RLS), and real-time order state updates. Features role-based access control (RBAC) separating customer, staff, and admin portals, with automated cart calculation and Vercel hosting.',
+    stack: ['Supabase', 'PostgreSQL', 'Python', 'JavaScript', 'REST APIs', 'Row-Level Security (RLS)', 'Vercel'],
     github: 'https://github.com/MANIVARUN24/manora-cafe',
     githubLabel: 'manora-cafe',
     liveUrl: 'https://manora-cafe-two.vercel.app/',
-    arch: null,
+    arch: [
+      { node: 'Customer & Staff Web Client  ·  Responsive UI (Vercel)' },
+      { arrow: true },
+      { node: 'Supabase Auth & Role-Based Access Control (RBAC)' },
+      { arrow: true },
+      { node: 'Supabase Backend & Real-time Database Client' },
+      { arrow: true },
+      { node: 'PostgreSQL Relational DB  ·  RLS Policies & Transactions' },
+      { arrow: true },
+      { node: 'Real-Time Order Fulfillment, Cart & Billing Lifecycle' },
+    ],
   },
   {
     num: '03',
     name: 'Student Portfolio Management',
-    sub: 'Web application for managing student portfolios',
-    desc: 'A web application to manage and organise student portfolio data. Built to support structured student record management with a browser-based interface.',
-    stack: ['Web Technologies', 'JavaScript'],
+    sub: 'Academic & Technical Portfolio Record Management System',
+    desc: 'A structured web application designed to centralise, manage, and present student academic achievements, technical projects, and skill proficiencies. Built using a modular JavaScript architecture with client-side state validation, dynamic DOM rendering, and CRUD workflows for portfolio data manipulation. Replaces fragmented spreadsheets with an intuitive, unified profile management and showcase platform.',
+    stack: ['JavaScript', 'HTML5', 'CSS3', 'CRUD Architecture', 'DOM APIs', 'State Management', 'Git'],
     github: 'https://github.com/MANIVARUN24/student-portfolio-management',
     githubLabel: 'student-portfolio-management',
-    arch: null,
+    arch: [
+      { node: 'Student Profile & Admin Dashboard  ·  Web Interface' },
+      { arrow: true },
+      { node: 'Form Validation Engine  ·  Client-side Data Sanitisation' },
+      { arrow: true },
+      { node: 'Portfolio State Controller  ·  CRUD Logic & Event Bus' },
+      { arrow: true },
+      { node: 'Structured Record Store  ·  Academics, Projects & Skills' },
+      { arrow: true },
+      { node: 'Dynamic Showcase Generator  ·  Profile & Credential View' },
+    ],
   },
 ];
 
@@ -249,6 +269,220 @@ const skillGroups = [
   { name: 'Cloud & Infra', items: ['AWS', 'AWS IoT Core', 'Amazon EC2', 'VPC'] },
   { name: 'Data & Tools', items: ['PostgreSQL', 'SQL', 'Git', 'GitHub', 'Linux'] },
 ];
+
+// ─── Education data ───────────────────────────────────
+const educationList = [
+  {
+    institution: 'KL University',
+    degree: 'B.Tech in Computer Science and Engineering',
+    spec: 'Specialisation in Cloud Computing',
+    duration: '2024 – 2028 · Vaddeswaram, Andhra Pradesh',
+    score: '9.4',
+    scoreLabel: 'CGPA / 10.0',
+  },
+  {
+    institution: 'Narayana Junior College',
+    degree: 'Intermediate (Class XI – XII, MPC)',
+    spec: 'Mathematics, Physics & Chemistry',
+    duration: '2022 – 2024 · Telangana, India',
+    score: '98.4%',
+    scoreLabel: 'MARKS / PERCENTAGE',
+  },
+  {
+    institution: 'Montessori High School',
+    degree: 'Class X (Secondary School Certificate)',
+    spec: 'State Board of Secondary Education',
+    duration: '2021 – 2022 · Telangana, India',
+    score: '9.7',
+    scoreLabel: 'CGPA / 10.0',
+  },
+];
+
+// ─── Hero Visual Widget ──────────────────────────────
+function HeroVisual() {
+  const [activeTab, setActiveTab] = useState<'ts' | 'sh'>('ts');
+  const [copied, setCopied] = useState(false);
+
+  const tsCode = `const engineer: CloudDeveloper = {
+  name: "Natukula Manivarun",
+  role: "Cloud & Systems Developer",
+  focus: ["AWS Cloud", "Backend APIs", "IoT"],
+  certification: "AWS Cloud Practitioner ☁️",
+  academics: {
+    university: "KL University",
+    degree: "B.Tech CSE",
+    cgpa: "9.4 / 10.0"
+  },
+  skills: [
+    "AWS IoT Core", "Python", "Docker",
+    "FastAPI", "React", "PostgreSQL"
+  ],
+  status: "Open for Opportunities"
+};`;
+
+  const shCode = `$ aws sts get-caller-identity
+{
+  "UserId": "AROA...MANIVARUN",
+  "Account": "aws-ccp-verified",
+  "Role": "Cloud Practitioner"
+}
+
+$ iot-gateway --status
+✔ AWS IoT Core: Connected (TLS/mTLS)
+✔ Sensor Telemetry: 3 Streams Active
+✔ Backend: Spring Boot + PostgreSQL on EC2
+
+$ echo $OPEN_TO_WORK
+true`;
+
+  const handleCopy = () => {
+    const textToCopy = activeTab === 'ts' ? tsCode : shCode;
+    navigator.clipboard.writeText(textToCopy);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="intro__visual" aria-label="Interactive developer console & cloud overview">
+      <div className="hero-glow" aria-hidden="true" />
+
+      {/* Floating AWS Certificate Badge */}
+      <a
+        href="https://www.credly.com/badges/63b5bc44-2387-4a9a-b00a-aee231f17bd3/public_url"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="floating-chip floating-chip--top"
+        title="View verified credential on Credly"
+      >
+        <div className="floating-chip__icon floating-chip__icon--aws">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+          </svg>
+        </div>
+        <div className="floating-chip__content">
+          <div className="floating-chip__title">AWS Certified</div>
+          <div className="floating-chip__sub">Cloud Practitioner · Credly ✓</div>
+        </div>
+      </a>
+
+      {/* Interactive Code / Terminal Window */}
+      <div className="hero-console">
+        <div className="hero-console__header">
+          <div className="hero-console__dots" aria-hidden="true">
+            <span className="dot dot--red" />
+            <span className="dot dot--yellow" />
+            <span className="dot dot--green" />
+          </div>
+
+          <div className="hero-console__tabs" role="tablist">
+            <button
+              className={`hero-console__tab ${activeTab === 'ts' ? 'active' : ''}`}
+              onClick={() => setActiveTab('ts')}
+              role="tab"
+              aria-selected={activeTab === 'ts'}
+            >
+              <span className="tab-icon">TS</span>
+              developer.ts
+            </button>
+            <button
+              className={`hero-console__tab ${activeTab === 'sh' ? 'active' : ''}`}
+              onClick={() => setActiveTab('sh')}
+              role="tab"
+              aria-selected={activeTab === 'sh'}
+            >
+              <span className="tab-icon tab-icon--sh">$</span>
+              cloud-cli.sh
+            </button>
+          </div>
+
+          <button
+            className="hero-console__copy-btn"
+            onClick={handleCopy}
+            title={copied ? 'Copied!' : 'Copy code'}
+            aria-label="Copy snippet"
+          >
+            {copied ? (
+              <span className="copy-copied">✓</span>
+            ) : (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+              </svg>
+            )}
+          </button>
+        </div>
+
+        <div className="hero-console__body">
+          {activeTab === 'ts' ? (
+            <pre className="hero-code">
+              <code>
+                <span className="token-kw">const</span> <span className="token-var">developer</span>: <span className="token-type">CloudDeveloper</span> = {'{\n'}
+                {'  '}<span className="token-prop">name</span>: <span className="token-str">"Natukula Manivarun"</span>,{'\n'}
+                {'  '}<span className="token-prop">role</span>: <span className="token-str">"Cloud & Systems Developer"</span>,{'\n'}
+                {'  '}<span className="token-prop">certified</span>: <span className="token-str">"AWS Cloud Practitioner ☁️"</span>,{'\n'}
+                {'  '}<span className="token-prop">focus</span>: [{'\n'}
+                {'    '}<span className="token-str">"Cloud Architecture (AWS)"</span>,{'\n'}
+                {'    '}<span className="token-str">"IoT Edge & Sensor Telemetry"</span>,{'\n'}
+                {'    '}<span className="token-str">"Backend APIs & Databases"</span>{'\n'}
+                {'  '}],{'\n'}
+                {'  '}<span className="token-prop">academics</span>: <span className="token-str">"KL University · 9.4 CGPA"</span>,{'\n'}
+                {'  '}<span className="token-prop">status</span>: <span className="token-str token-status">"Open for Opportunities"</span>{'\n'}
+                {'}'};
+              </code>
+            </pre>
+          ) : (
+            <div className="hero-terminal">
+              <div className="term-line">
+                <span className="term-prompt">❯</span> <span className="term-cmd">aws sts get-caller-identity</span>
+              </div>
+              <div className="term-output">
+                {'{'}<br />
+                &nbsp;&nbsp;<span className="term-key">"Account"</span>: <span className="term-val">"aws-clf-certified"</span>,<br />
+                &nbsp;&nbsp;<span className="term-key">"Role"</span>: <span className="term-val">"Cloud-Architect"</span><br />
+                {'}'}
+              </div>
+              <div className="term-line" style={{ marginTop: '10px' }}>
+                <span className="term-prompt">❯</span> <span className="term-cmd">iot-gateway status</span>
+              </div>
+              <div className="term-output term-success">
+                ✔ AWS IoT Core: Connected (TLS/mTLS)<br />
+                ✔ Sensor Pipeline: 3 Streams Active<br />
+                ✔ EC2 + PostgreSQL: Healthy
+              </div>
+              <div className="term-line" style={{ marginTop: '10px' }}>
+                <span className="term-prompt">❯</span> <span className="term-cmd">ping portfolio.live</span>
+                <span className="term-cursor" />
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className="hero-console__footer">
+          <div className="console-status">
+            <span className="status-ping" />
+            <span className="status-text">Cloud node active · 14ms latency</span>
+          </div>
+          <span className="console-lang">{activeTab === 'ts' ? 'TypeScript' : 'Zsh / AWS CLI'}</span>
+        </div>
+      </div>
+
+      {/* Floating IoT & Systems Badge */}
+      <div className="floating-chip floating-chip--bottom">
+        <div className="floating-chip__icon floating-chip__icon--iot">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect width="16" height="16" x="4" y="4" rx="2" />
+            <rect width="6" height="6" x="9" y="9" rx="1" />
+            <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3" />
+          </svg>
+        </div>
+        <div className="floating-chip__content">
+          <div className="floating-chip__title">IoT & Systems Pipeline</div>
+          <div className="floating-chip__sub">MQTT · Spring Boot · PostgreSQL</div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 // ─── Main App ─────────────────────────────────────────
 export default function App() {
@@ -343,6 +577,8 @@ export default function App() {
                   </a>
                 </div>
               </div>
+
+              <HeroVisual />
             </div>
           </div>
         </section>
@@ -448,7 +684,7 @@ export default function App() {
                     <p className="project-sub">{p.sub}</p>
                     <p className="project-desc">{p.desc}</p>
 
-                    {/* Architecture diagram – only for project 01 */}
+                    {/* Architecture pipeline diagram */}
                     {p.arch && (
                       <div className="arch-diagram" aria-label="System architecture">
                         {p.arch.map((step, i) =>
@@ -482,17 +718,25 @@ export default function App() {
         <section id="education" className="section education" aria-label="Education">
           <div className="wrap">
             <p className="s-label reveal" data-delay="0s">Education</p>
-            <div className="edu-card reveal" data-delay="0.05s">
-              <div className="edu-left">
-                <h2 className="edu-institution">KL University</h2>
-                <p className="edu-degree">B.Tech in Computer Science and Engineering</p>
-                <p className="edu-spec">Specialisation in Cloud Computing</p>
-                <p className="edu-duration">2024 – 2028 · Vaddeswaram, Andhra Pradesh</p>
-              </div>
-              <div className="edu-right">
-                <div className="edu-cgpa-num">9.4</div>
-                <div className="edu-cgpa-label">CGPA / 10.0</div>
-              </div>
+            <div className="edu-list">
+              {educationList.map((edu, idx) => (
+                <div
+                  key={edu.institution}
+                  className="edu-card reveal"
+                  data-delay={`${idx * 0.08}s`}
+                >
+                  <div className="edu-left">
+                    <h2 className="edu-institution">{edu.institution}</h2>
+                    <p className="edu-degree">{edu.degree}</p>
+                    <p className="edu-spec">{edu.spec}</p>
+                    <p className="edu-duration">{edu.duration}</p>
+                  </div>
+                  <div className="edu-right">
+                    <div className="edu-cgpa-num">{edu.score}</div>
+                    <div className="edu-cgpa-label">{edu.scoreLabel}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
